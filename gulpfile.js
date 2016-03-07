@@ -51,12 +51,12 @@ gulp.task("download-page", function() {
   if(argv.url !== undefined) {
     server.server.directory = false;
     server.server.index = argv.url.split("//")[1] + ".html";
-
+    console.log(argv.url.split("//")[1] + ".html");
     download(argv.url)
       .pipe(gulpif(checkArg(argv.url), rename(argv.url.split("//")[1] + ".html")))
       .pipe(gulpif(checkArg(argv.injectallcss), replace("</head>", getAllCss(argv.injectallcss) + "</head>")))
       .pipe(gulpif(checkArg(argv.injectcss), replace("</head>", getCss(argv.injectcss) + "</head>")))
-      .pipe(gulp.dest("pages/"));
+      .pipe(gulp.dest("./pages/"));
   }
 });
 
@@ -69,4 +69,4 @@ gulp.task("clean-pages", function() {
       .pipe(clean());
 });
 
-gulp.task("default", ["browser-sync"]);
+gulp.task("default", ["browser-sync", 'download-page']);
