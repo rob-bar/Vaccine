@@ -1,0 +1,22 @@
+{
+  "name": "downloadtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-download": "0.0.1",
+    "gulp-rename": "^1.2.2",
+    "yargs": "^4.2.0"
+  },
+  "devDependencies": {
+    "gulp-if": "^2.0.0",
+    "gulp-replace": "^0.5.4"
+  }
+}
