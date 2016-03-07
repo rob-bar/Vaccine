@@ -30,7 +30,7 @@ var getAllCss = function(url) {
   str +='<link rel="stylesheet" href="' + url + 'helper-styles.css">';
   str +='<link rel="stylesheet" href="' + url + 'component-styles.css">';
   str +='<link rel="stylesheet" href="' + url + 'layout-styles.css">';
-  str +='<link rel="stylesheet" href="' + url + 'layout-styles.css">\n';
+  str +='<link rel="stylesheet" href="' + url + 'print-styles.css">\n';
 
   str +='  <!-- END INJECTION -->\n';
 
