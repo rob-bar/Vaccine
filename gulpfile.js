@@ -51,7 +51,7 @@ gulp.task("download-page", function() {
   if(argv.url !== undefined) {
     server.server.directory = false;
     server.server.index = argv.url.split("//")[1] + ".html";
-    console.log(argv.url.split("//")[1] + ".html");
+
     download(argv.url)
       .pipe(gulpif(checkArg(argv.url), rename(argv.url.split("//")[1] + ".html")))
       .pipe(gulpif(checkArg(argv.injectallcss), replace("</head>", getAllCss(argv.injectallcss) + "</head>")))
