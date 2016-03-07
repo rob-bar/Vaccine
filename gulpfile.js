@@ -8,13 +8,12 @@ var rename = require("gulp-rename");
 var argv = require('yargs').argv;
 var browserSync = require('browser-sync').create();
 
-//fs.stat('file.txt', function(err, stat) {
-//  if(err == null) {
-//      console.log('File exists');
-//  } else {
-//      console.log(err.code);
-//  }
-//});
+var server = {
+  server: {
+    baseDir: "./pages/",
+    directory: true
+  }
+};
 
 var checkArg = function(arg) {
   if(arg === undefined) {
@@ -48,25 +47,20 @@ var getCss = function(url) {
   return str;
 }
 
-gulp.task("default", function() {
-  var server = {
-    server: {
-      baseDir: "./pages/",
-      directory: true
-    }
-  };
-
+gulp.task("download-page", function() {
   if(argv.url !== undefined) {
+    server.server.directory = false;
+    server.server.index = argv.url.split("//")[1] + ".html";
+
     download(argv.url)
       .pipe(gulpif(checkArg(argv.url), rename(argv.url.split("//")[1] + ".html")))
       .pipe(gulpif(checkArg(argv.injectallcss), replace("</head>", getAllCss(argv.injectallcss) + "</head>")))
       .pipe(gulpif(checkArg(argv.injectcss), replace("</head>", getCss(argv.injectcss) + "</head>")))
       .pipe(gulp.dest("pages/"));
-
-    server.server.directory = false;
-    server.server.index = argv.url.split("//")[1] + ".html";
   }
+});
 
+gulp.task("browser-sync", ['download-page'], function() {
   browserSync.init(server);
 });
 
@@ -74,3 +68,5 @@ gulp.task("clean-pages", function() {
     return gulp.src(['pages/*','!pages/.gitkeep'], {read: false})
       .pipe(clean());
 });
+
+gulp.task("default", ["browser-sync"]);
