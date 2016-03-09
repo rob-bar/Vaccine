@@ -1,13 +1,13 @@
 {
   "name": "downloadtest",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "bypass-vaccine",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Robbie Bardijn",
+  "license": "MIT",
   "dependencies": {
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.1",
