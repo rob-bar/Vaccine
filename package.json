@@ -1,7 +1,7 @@
 {
-  "name": "downloadtest",
+  "name": "bypass-vaccine",
   "version": "1.0.0",
-  "description": "bypass-vaccine",
+  "description": "This tool injects assets on existing pages. This can be used to quickly alter the behaviour or look and feel of a webpage.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
