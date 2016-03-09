@@ -1,6 +1,6 @@
 {
   "name": "-vaccine-",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This tool injects assets on existing pages. This can be used to quickly alter the behaviour or look and feel of a webpage.",
   "main": "gulpfile.js",
   "scripts": {
