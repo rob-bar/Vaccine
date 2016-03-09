@@ -69,4 +69,4 @@ gulp.task("clean-pages", function() {
       .pipe(clean());
 });
 
-gulp.task("default", ["browser-sync", 'download-page']);
+gulp.task("default", ['download-page', "browser-sync"]);
